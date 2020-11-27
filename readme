@@ -1,1 +1,13 @@
-hello world
+Important commands I learned in Python:
+
+1) ord() sends a character to its ASCII code. Its inverse is chr().
+2) x.count('a') gives the occurrences of a inside a string x.
+3) Functions: y=list(map(lambda q: [function], x)) sends (x_1,...,x_n) to (f(x_1), ..., f(x_n)) Alternative: "f(z) for z in x".
+4) Sublists: y=list(filter(lambda q: [condition], x)) gives the elements of (x_1,...,x_n) that fulfill [condition]. Alternative: "z for z in x if [condition]".
+5) arr[-1] gives the last element of an array.
+6) To remove non-unique values, use set(). Be careful since this removes any existing order and replaces it with alphabetic one.
+
+Checklist (to be updated every week):
+a) Does my program allow for exceptions?
+b) Does my program allow for values which produce no error, but don't make sense?
+c) Has my program produced an editable output, whenever possible? ("Return" is always better than "print")
