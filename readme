@@ -6,8 +6,31 @@ Important commands I learned in Python:
 4) Sublists: y=list(filter(lambda q: [condition], x)) gives the elements of (x_1,...,x_n) that fulfill [condition]. Alternative: "z for z in x if [condition]".
 5) arr[-1] gives the last element of an array.
 6) To remove non-unique values, use set(). Be careful since this removes any existing order and replaces it with alphabetic one.
+7) %xmode Verbose to give more details about an error/exception
+8) %debug to give even more details
+9) x['xyz2'] = x['xyz'].apply(lambda value: 'low' if value <= v1 else 'medium' if value <= v2 else 'high'): turns numerical data into words, adding a new column
+
+Numpy/Pandas:
+
+x.sort_values('xyz', ascending=True/False) <- to sort values according to value of xyz
+x['xyz'] = x['xyz'].replace('[\$,]', '', regex=True).astype(float) <- to clean data, in this case transforming "price" strings into numerical values
+x.drop(columns = ['xyz']) <- drop column xyz
+x.groupby('xyz').count() <- shows how many values xyz can assume
+x['xyz2'] = pd.Categorical(x['xyz'], categories=['low', 'medium', 'high']) <- related to 9) above, turns strings into categorical data
+xy = pd.concat([x,y]) <- concatenates vertically
+np.percentile(x, p) <- gives pth percentile
+
+Visualization:
+
+g = pd.plotting.scatter_matrix(x, figsize=(10,10), marker = 'o', hist_kwds = {'bins': 10}, s = 60, alpha = 0.8) <- multiple scatterplot
+sns.pairplot(x, hue='wine_type_code', size=1.5) <- another multiple scatterplot, different colors according to categories
+ax = fig.gca(); ax.axes.xaxis.set_visible(False) <- does not display axis markers
+box=plt.boxplot ([high_qual.iloc[:,j], med_qual.iloc[:,j], low_qual.iloc[:,j]], patch_artist=True)
+ticks = range(1, 4); labels = list(['x','y','z']); plt.xticks(ticks,labels); plt.title('aaa'); plt.xlabel('x', fontsize=15); plt.ylabel('y'); colors = [...];
+for patch, color in zip(box['boxes'], colors): patch.set_facecolor(color) <- creates a colored boxplot
 
 Checklist (to be updated every week):
 a) Does my program allow for exceptions?
 b) Does my program allow for values which produce no error, but don't make sense?
 c) Has my program produced an editable output, whenever possible? ("Return" is always better than "print")
+d) Do all parts of my output make sense?
